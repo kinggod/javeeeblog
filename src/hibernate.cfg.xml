@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+    
+ 		 <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/user?characterEncoding=utf8</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">6833066</property>
+
+        <!-- JDBC connection pool (use the built-in)
+        <property name="connection.pool_size">1</property>
+         -->
+         
+     <!-- 一次读的数据库记录数 -->
+		<property name="jdbc.fetch_size">50</property>
+	<!-- 	设定对数据库进行批量删除 -->
+        <property name="jdbc.batch_size">30</property> 
+        
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        
+        <property name="c3p0.min_size">5</property><!--连接池的最小连接数--> 
+        <property name="c3p0.max_size">20</property>
+        <property name="c3p0.timeout">1800</property><!--连接超时时间-->   
+        <property name="c3p0.max_statements">150</property>  <!--statemnets缓存大小--> 
+         <!--当池中的连接耗尽的时候，一次性增加的连接数量,默认为3-->   
+	   <property name="hibernate.c3p0.acquire_increment">3</property>  
+
+         <mapping class="com.jinhan.bean.User"/>
+        <mapping resource="com/jinhan/bean/Content.hbm.xml"/>
+        <mapping resource="com/jinhan/bean/Page.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>

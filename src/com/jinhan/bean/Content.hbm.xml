@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 目录数据库配置文件 -->
+<hibernate-mapping>
+	<class name="com.jinhan.bean.Content" table="content" dynamic-insert="true"
+		dynamic-update="true">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="title" />
+		<property name="desc" />
+		<property name="date" />
+		<property name="sort" />
+		<property name="rank" />
+		<property name="father" />
+		
+		<!-- 级联更新 一对多自动读取 -->
+		<set name="pages" cascade="save-update" inverse="true">
+			<key column="content" />
+			<one-to-many class="com.jinhan.bean.Page" />
+		</set>
+
+	</class>
+
+</hibernate-mapping>
