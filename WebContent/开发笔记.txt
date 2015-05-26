@@ -15,3 +15,4 @@ hibernate一对多，多对一拿数据
 	写了过滤器拦截其他文件
 密码用md5加密，类型转换很复杂
 写了后台
+http://www.cnblogs.com/yejiurui/archive/2012/10/04/2711346.html
