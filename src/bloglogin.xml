@@ -32,9 +32,13 @@
         </action>
         
         <!-- 列出所有用户 -->
-        <action name="listuser" class="com.jinhan.action.UserAction" method="listUser">
-        <!-- 	<interceptor-ref name="needLogin" /> -->
-        </action>
+        <action name="listuser" class="com.jinhan.action.UserAction" method="listUser"></action>
+        <!-- 删除用户 -->
+        <action name="deleteuser" class="com.jinhan.action.UserAction" method="deleteUser"></action>
+        <!-- 添加用户 -->
+        <action name="adduser" class="com.jinhan.action.UserAction" method="addUser"></action>
+        <!-- 更新用户 -->
+        <action name="updateuser" class="com.jinhan.action.UserAction" method="updateUser"></action>
         
         <!-- 专业测试 -->
         <action name="test" class="com.jinhan.action.UserAction" method="test">

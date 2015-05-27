@@ -16,3 +16,6 @@ hibernate一对多，多对一拿数据
 密码用md5加密，类型转换很复杂
 写了后台
 http://www.cnblogs.com/yejiurui/archive/2012/10/04/2711346.html
+
+2015/5/27星期三
+实现用户数据显示

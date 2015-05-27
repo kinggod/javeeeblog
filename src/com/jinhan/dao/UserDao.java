@@ -11,16 +11,60 @@ import com.jinhan.bean.User;
 public class UserDao {
 	public static SessionFactory sessionFactory = utils.HibernateSessionFactory
 			.getSessionFactory();
-
+	/*得到所有用户人数*/
+	public  int getTotalUser() {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			 String hqlString = "select count(*) from User";   
+			 Query query = session.createQuery(hqlString);   
+			 int count = ((Number)query.uniqueResult()).intValue();
+			tx.commit();
+			return count;
+		} catch (RuntimeException e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			throw e;
+		}finally{
+			session.close();
+		}
+	}
+	
+	/*更新用户*/
+	public String loadAndUpdateUser(int id,String userName,byte[]password){
+		Session session=sessionFactory.openSession();
+		Transaction tx=null;
+		try{
+			tx=session.beginTransaction();
+			User m=(User) session.get(User.class, id);
+			m.setUserName(userName);
+			m.setPassword(password);
+			session.update(m);
+			tx.commit();
+			return "yes";
+		}catch(RuntimeException e){
+			if (tx != null) {
+				tx.rollback();
+				return "no";
+			}
+			return "no";
+		}
+	}
+	
 	@SuppressWarnings("unchecked")
 	/*得到所有用户*/
-	public List<User> getUser() {
+	public List<User> getUser(int pageStart, int pageSize) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		List<User> user = new ArrayList<User>();
 		try {
 			tx = session.beginTransaction();
-			user = session.createQuery("from User").list();
+			Query query= session.createQuery("from User");
+			query.setFirstResult(pageStart);  
+			query.setMaxResults(pageSize); 	
+			user=query.list();
 			tx.commit();
 			return user;
 		} catch (RuntimeException e) {
@@ -33,35 +77,39 @@ public class UserDao {
 		}
 	}
 	/*添加用户*/
-	public void addUser(User user) {
+	public String addUser(User user) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
 			session.save(user);
 			tx.commit();
+			return "yes";
 		} catch (RuntimeException e) {
 			if (tx != null) {
 				tx.rollback();
 			}
-			throw e;
+			return "no";
 		}finally{
 			session.close();
 		}
 	}
 	/*删除用户*/
-	public void deleteUser(User user) {
+	public String deleteUser(int id) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
+			User user=(User) session.get(User.class, id);
 			session.delete(user);
 			tx.commit();
+			System.out.println("yes");
+			return "yes";
 		} catch (RuntimeException e) {
 			if (tx != null) {
 				tx.rollback();
 			}
-			throw e;
+			return "no";
 		}finally{
 			session.close();
 		}
@@ -94,7 +142,7 @@ public class UserDao {
 			if (tx != null) {
 				tx.rollback();
 			}
-			throw e;
+			return "no";
 		}finally{
 			session.close();
 		}

@@ -44,14 +44,6 @@
             <div data-options="region:'center'"  id="tabs" class="easyui-tabs">
 	            <div title="使用指南"  data-options="iconCls:'icon-reload'" style="padding:20px;">
 	            <h1>后台</h1>
-				<input type="button" value="点我显示数据" id="clickMe">
-				<table id="showTable" border="1">
-				<tr>
-					<td>ID</td>
-					<td>姓名</td>
-					<td>密码</td>
-				</tr>
-				</table>
 				</div>
 				<div title="使用指南2"  data-options="iconCls:'icon-reload'" style="padding:20px;"></div>
             </div>
