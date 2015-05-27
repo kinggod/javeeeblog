@@ -19,3 +19,6 @@ http://www.cnblogs.com/yejiurui/archive/2012/10/04/2711346.html
 
 2015/5/27星期三
 实现用户数据显示
+用户删除
+用户修改
+用户更新
