@@ -32,7 +32,7 @@
     </init-param>
     <init-param>
       <param-name>root</param-name>
-      <param-value>a</param-value>
+      <param-value>root</param-value>
     </init-param>
     <init-param>
       <param-name>notCheckURLList</param-name>

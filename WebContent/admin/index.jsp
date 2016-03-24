@@ -53,7 +53,7 @@
 <!-- 主题内容结束 -->
 <!-- 导航关闭区域-->
 <div id="mm" class="easyui-menu" style="width: 150px;">
-		<div id="tabupdate">刷新</div>
+		<div id="refresh">刷新</div>
 		<div class="menu-sep"></div>
 		<div id="close">关闭</div>
 		<div id="closeall">全部关闭</div>

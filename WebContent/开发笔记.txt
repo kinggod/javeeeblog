@@ -22,3 +22,6 @@ http://www.cnblogs.com/yejiurui/archive/2012/10/04/2711346.html
 用户删除
 用户修改
 用户更新
+用户
+root
+6833066

@@ -8,7 +8,7 @@
 	<!-- 动作登陆拦截器 -->
 	<interceptors>
 			<interceptor name="needLogin" class="interceptor.LoginInterceptor">
-				<param name="userName">a</param>
+				<param name="userName">root</param>
 			</interceptor>
 		</interceptors>
 		
